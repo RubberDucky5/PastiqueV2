@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.rubberduck.pastique.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "GameMenuScreenMixin",
+    "FishingBobberEntityMixin",
+    "KeyboardMixin"
+  ],
+  "client": [
+    "MinecraftClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
