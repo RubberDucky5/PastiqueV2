@@ -17,6 +17,5 @@ public class DisconnectedScreenMixin {
     @Inject(at = @At("TAIL"), method = "init")
     public void init(CallbackInfo ci) {
         Pastique.trigger("recon");
-        Pastique.LOGGER.info("Disconnected!jdfsfhjklsdafhjkl");
     }
 }

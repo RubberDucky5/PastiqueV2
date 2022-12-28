@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MultiplayerScreenMixin {
     @Inject(at = @At("TAIL"), method = "connect(Lnet/minecraft/client/network/ServerInfo;)V")
     private void connect (ServerInfo entry, CallbackInfo ci) {
-        Pastique.LOGGER.info("Connected To A Server");
         Pastique.currentServer = entry;
     }
 }
