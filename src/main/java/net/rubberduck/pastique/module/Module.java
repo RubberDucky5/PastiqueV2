@@ -90,4 +90,8 @@ public class Module {
 
     public void onNewPlayer (PlayerEntity player) {
     }
+
+    public void trigger (String event) {
+
+    }
 }

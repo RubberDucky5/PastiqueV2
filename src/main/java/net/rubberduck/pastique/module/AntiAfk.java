@@ -1,3 +1,5 @@
+// This module does not currently work on aternos servers, which is why I wanted to make it :(
+
 package net.rubberduck.pastique.module;
 
 import net.minecraft.client.world.ClientWorld;
@@ -15,11 +17,13 @@ public class AntiAfk extends Module {
 
     @Override
     public void tick (ClientWorld cw) {
+
         if(mc.player == null) return;
 
         if(timer < 20) mc.player.applyMovementInput(new Vec3d(1, 0, 0), 1.0f);
         else mc.player.applyMovementInput(new Vec3d(-1, 0, 0), 1.0f);
         mc.player.changeLookDirection(rand.nextDouble(720) - 360.0, rand.nextDouble(720) - 360.0);
+
 
         timer++;
         if(timer > 40) timer = 0;

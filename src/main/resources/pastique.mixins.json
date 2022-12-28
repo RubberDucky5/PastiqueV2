@@ -6,7 +6,9 @@
   "mixins": [
     "GameMenuScreenMixin",
     "FishingBobberEntityMixin",
-    "KeyboardMixin"
+    "KeyboardMixin",
+    "MultiplayerScreenMixin",
+    "DisconnectedScreenMixin"
   ],
   "client": [
     "MinecraftClientMixin"

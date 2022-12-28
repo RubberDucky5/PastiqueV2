@@ -2,6 +2,7 @@ package net.rubberduck.pastique;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ServerInfo;
 import net.minecraft.network.Packet;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
@@ -19,9 +20,11 @@ public class Pastique implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("PastiqueV2");
 	protected static final MinecraftClient mc = MinecraftClient.getInstance();
-	public static Module[] mods = new Module[7];
+	public static Module[] mods = new Module[8];
 
 	public static boolean caughtFish = false;
+
+	public static ServerInfo currentServer = null;
 
 	@Override
 	public void onInitialize() {
@@ -39,6 +42,7 @@ public class Pastique implements ModInitializer {
 		mods[4] = new Fullbright();
 		mods[5] = new AutoFarm();
 		mods[6] = new AntiAfk();
+		mods[7] = new AutoReconnect();
 	}
 
 	public static Text getModEnabledText(Module mod) {
@@ -72,6 +76,14 @@ public class Pastique implements ModInitializer {
 		for(int i = 0; i < mods.length; i++) {
 			if (mods[i].keyCode == key) {
 				mods[i].toggle();
+			}
+		}
+	}
+
+	public static void trigger(String event){
+		for(int i = 0; i < mods.length; i++) {
+			if (mods[i].isEnabled()) {
+				mods[i].trigger(event);
 			}
 		}
 	}
