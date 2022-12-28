@@ -13,7 +13,7 @@ import net.minecraft.text.TranslatableTextContent;
 import net.rubberduck.pastique.module.Module;
 
 public class ModuleOptionsScreen extends Screen {
-    public Module mod;
+    public Module mod = null;
 
     public ModuleOptionsScreen (Text title) {
         super(title);
