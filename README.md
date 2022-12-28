@@ -6,6 +6,7 @@ PastiqueV2 is the second attempt at making a Hacked Client. This time it is actu
 - AntiAFK
 - AutoFarm
 - AutoFish
+- AutoReconnect
 - BoatFly
 - CreativeFly
 - FullBright
