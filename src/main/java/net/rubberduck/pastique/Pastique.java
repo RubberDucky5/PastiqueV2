@@ -3,8 +3,7 @@ package net.rubberduck.pastique;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
-import net.minecraft.network.Packet;
-import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
+//import net.minecraft.network.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.text.Text;
 import net.rubberduck.pastique.module.*;
@@ -28,10 +27,6 @@ public class Pastique implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
 		LOGGER.info("PastiqueV2 Starting...");
 
 		mods[0] = new AutoFish();
@@ -57,9 +52,9 @@ public class Pastique implements ModInitializer {
 		}
 	}
 
-	public static void sendPacket(Packet packet){
-		mc.getNetworkHandler().sendPacket(packet);
-	}
+//	public static void sendPacket(Packet packet){
+//		mc.getNetworkHandler().sendPacket(packet);
+//	}
 
 	public static void tick() {
 		for(int i = 0; i < mods.length; i++) {

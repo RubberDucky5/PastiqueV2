@@ -24,6 +24,7 @@ public class PastiqueMenuScreen extends Screen {
             int y = this.height / 2 - 10 - (Pastique.mods.length * 25) / 2;
             y += i * 25;
             ButtonWidget button = ButtonWidget.builder(Pastique.getModEnabledText(mod), b -> {
+                //Pastique.LOGGER.info((int) b.lastButton);
                 mod.toggle();
                 // Janky Ahh :(
                 client.setScreen(new PastiqueMenuScreen(Text.of("Pastique Menu")));
@@ -39,7 +40,7 @@ public class PastiqueMenuScreen extends Screen {
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         this.renderBackground(matrices);
-        GameMenuScreen.drawCenteredText(matrices, this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
+        GameMenuScreen.drawCenteredTextWithShadow(matrices, this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
         super.render(matrices, mouseX, mouseY, delta);
     }
 }
